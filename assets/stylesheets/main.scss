@@ -1,0 +1,263 @@
+// Created by sam mok 2015(Siso brand interactive team).
+
+/*======================================================================
+      Global
+  ======================================================================*/
+* {
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+
+html {
+  height: 100%;
+  font-family: "microsoft yahei", Arial, "Helvetica Neue", Helvetica, sans-serif;
+  background: #000;
+}
+
+body {
+  height: 100%;
+  overflow: hidden;
+  margin: 0  auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+p, a, button, span {
+  -webkit-font-smoothing: antialiased;
+}
+
+input {
+  outline: none;
+}
+
+.pa { position: absolute; }
+
+/* psd width `divided` 10 */
+$page-base-rem : 75; /* 750/10=75 */
+
+@mixin calWidth ($value) {
+  width: $value*1rem / $page-base-rem;
+}
+
+@mixin calHeight ($value) {
+  height: $value*1rem / $page-base-rem;
+}
+
+@mixin calTop ($value) {
+  top: $value*1rem / $page-base-rem;
+}
+
+@mixin calBottom ($value) {
+  bottom: $value*1rem / $page-base-rem;
+}
+
+@mixin calLeft ($value) {
+  left: $value*1rem / $page-base-rem;
+}
+
+@mixin calRight ($value) {
+  right: $value*1rem / $page-base-rem;
+}
+
+.page{
+  display: block;
+  width: 1080px;
+  height: 1920px;
+  margin: 0 auto;
+}
+
+.full-size {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left:0;
+}
+
+.scene {
+  @extend .full-size;
+}
+
+//  loading
+.loading {
+  z-index: 1000;
+
+  .loading-bd {
+    height: 100%;
+    background: url("../images/loading-bg.jpg") no-repeat center center;
+    background-size: 140% 140%;
+
+    .txt {
+      position: absolute;
+      top:0;
+      left: 365px;
+      transform-origin: 86px 938px;
+    }
+  }
+
+  &.active {
+    .loading-bd {
+      background-size: 100% 100%;
+      transition: all 2.4s;
+
+      .txt {
+        transform: scale(51) translateX(2.2px);
+        transition: all 2.4s ease-in;
+      }
+    }
+
+    opacity: 0;
+    transition: all .6s 1.6s;
+  }
+}
+
+//  scene01
+.scene01 {
+  .mask {
+    @extend .full-size;
+    background: url("../images/scene01-mask.png") no-repeat;
+    transform-origin: center center;
+    z-index: 100;
+  }
+
+  .scene-bd {
+    height: 100%;
+    background: url("../images/s01-bg.jpg") no-repeat;
+    transform: scale(.8);
+    transform-origin: center center;
+  }
+
+  .diaoti {
+    position: absolute;
+    left: 100px;
+    top:0;
+    transform: translateY(-20%);
+  }
+
+  .video {
+    position: absolute;
+    top:0;
+    left: 0;
+    z-index: 20;
+    transform: translateY(-100%);
+
+    .hd, .ft {
+      display: block;
+    }
+
+    .bd {
+      margin: 0 18px;
+      height: 0;
+      background: url("../images/video-bd.jpg") no-repeat;
+    }
+  }
+  
+  .tips-next {
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width:880px;
+    height: 382px;
+    background: url("../images/s01-jiaojuan.png");
+
+    .bd {
+      padding: 110px 0 0 0;
+      text-align: center;
+
+      * {
+        vertical-align: top;
+      }
+    }
+
+    .arrow {
+      -webkit-animation: nextPage 1.2s linear infinite;
+    }
+
+    .arrow01 {
+
+    }
+
+    .arrow02 {
+      -webkit-animation: nextPage 1.2s .2s linear infinite;
+      padding-bottom: 10px;
+    }
+  }
+
+  //  active
+  &.active {
+    .mask {
+      transform: scale(2.3);
+      transition: all 1.3s;
+    }
+
+    .scene-bd {
+      transform: scale(1);
+      transition: all 1.3s;
+    }
+
+    .diaoti {
+      transform: translateY(0);
+      transition: all 2.4s;
+    }
+  }
+
+  //  video down
+  &.videoPrepare {
+    .mask {
+      opacity: 0;
+      transition: all .6s;
+    }
+
+    .diaoti {
+      transform: translateY(-100%);
+      transition: all 2s;
+    }
+
+    .video {
+      transform: translateY(0);
+      transition: all 2.5s;
+
+      .bd {
+        height: 362px;
+        transition: all 2s 2.5s;
+      }
+    }
+
+    .tips-next {
+      bottom: 0;
+      transition: all 2s 3s;
+    }
+  }
+}
+
+//  Animations
+@-webkit-keyframes nextPage {
+  0% {
+    -webkit-transform: translateY(0px);
+    opacity: 0.8;
+  }
+  50% {
+    -webkit-transform: translateY(-20px);
+    opacity: 0.4;
+  }
+  100% {
+    -webkit-transform: translateY(-40px);
+    opacity: 0;
+  }
+}
+
+
+
+/*======================================================================
+      Responsive
+  ======================================================================*/
+@media screen and (max-width: 1215px) {
+
+}

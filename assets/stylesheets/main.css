@@ -1,0 +1,212 @@
+/*======================================================================
+      Global
+  ======================================================================*/
+* {
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+
+html {
+  height: 100%;
+  font-family: "microsoft yahei", Arial, "Helvetica Neue", Helvetica, sans-serif;
+  background: #000;
+}
+
+body {
+  height: 100%;
+  overflow: hidden;
+  margin: 0  auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+p, a, button, span {
+  -webkit-font-smoothing: antialiased;
+}
+
+input {
+  outline: none;
+}
+
+.pa {
+  position: absolute;
+}
+
+/* psd width `divided` 10 */
+/* 750/10=75 */
+.page {
+  display: block;
+  width: 1080px;
+  height: 1920px;
+  margin: 0 auto;
+}
+
+.full-size, .scene, .scene01 .mask {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.loading {
+  z-index: 1000;
+}
+.loading .loading-bd {
+  height: 100%;
+  background: url("../images/loading-bg.jpg") no-repeat center center;
+  background-size: 140% 140%;
+}
+.loading .loading-bd .txt {
+  position: absolute;
+  top: 0;
+  left: 365px;
+  -webkit-transform-origin: 86px 938px;
+          transform-origin: 86px 938px;
+}
+.loading.active {
+  opacity: 0;
+  -webkit-transition: all .6s 1.6s;
+  transition: all .6s 1.6s;
+}
+.loading.active .loading-bd {
+  background-size: 100% 100%;
+  -webkit-transition: all 2.4s;
+  transition: all 2.4s;
+}
+.loading.active .loading-bd .txt {
+  -webkit-transform: scale(51) translateX(2.2px);
+          transform: scale(51) translateX(2.2px);
+  -webkit-transition: all 2.4s ease-in;
+  transition: all 2.4s ease-in;
+}
+
+.scene01 .mask {
+  background: url("../images/scene01-mask.png") no-repeat;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  z-index: 100;
+}
+.scene01 .scene-bd {
+  height: 100%;
+  background: url("../images/s01-bg.jpg") no-repeat;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+}
+.scene01 .diaoti {
+  position: absolute;
+  left: 100px;
+  top: 0;
+  -webkit-transform: translateY(-20%);
+          transform: translateY(-20%);
+}
+.scene01 .video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+}
+.scene01 .video .hd, .scene01 .video .ft {
+  display: block;
+}
+.scene01 .video .bd {
+  margin: 0 18px;
+  height: 0;
+  background: url("../images/video-bd.jpg") no-repeat;
+}
+.scene01 .tips-next {
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  width: 880px;
+  height: 382px;
+  background: url("../images/s01-jiaojuan.png");
+}
+.scene01 .tips-next .bd {
+  padding: 110px 0 0 0;
+  text-align: center;
+}
+.scene01 .tips-next .bd * {
+  vertical-align: top;
+}
+.scene01 .tips-next .arrow {
+  -webkit-animation: nextPage 1.2s linear infinite;
+}
+.scene01 .tips-next .arrow02 {
+  -webkit-animation: nextPage 1.2s .2s linear infinite;
+  padding-bottom: 10px;
+}
+.scene01.active .mask {
+  -webkit-transform: scale(2.3);
+          transform: scale(2.3);
+  -webkit-transition: all 1.3s;
+  transition: all 1.3s;
+}
+.scene01.active .scene-bd {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: all 1.3s;
+  transition: all 1.3s;
+}
+.scene01.active .diaoti {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition: all 2.4s;
+  transition: all 2.4s;
+}
+.scene01.videoPrepare .mask {
+  opacity: 0;
+  -webkit-transition: all .6s;
+  transition: all .6s;
+}
+.scene01.videoPrepare .diaoti {
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  -webkit-transition: all 2s;
+  transition: all 2s;
+}
+.scene01.videoPrepare .video {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition: all 2.5s;
+  transition: all 2.5s;
+}
+.scene01.videoPrepare .video .bd {
+  height: 362px;
+  -webkit-transition: all 2s 2.5s;
+  transition: all 2s 2.5s;
+}
+.scene01.videoPrepare .tips-next {
+  bottom: 0;
+  -webkit-transition: all 2s 3s;
+  transition: all 2s 3s;
+}
+
+@-webkit-keyframes nextPage {
+  0% {
+    -webkit-transform: translateY(0px);
+    opacity: 0.8;
+  }
+  50% {
+    -webkit-transform: translateY(-20px);
+    opacity: 0.4;
+  }
+  100% {
+    -webkit-transform: translateY(-40px);
+    opacity: 0;
+  }
+}
+/*======================================================================
+      Responsive
+  ======================================================================*/
