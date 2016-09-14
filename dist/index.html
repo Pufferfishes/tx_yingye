@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta content="telephone=no" name="format-detection">
-    <meta content="maximum-dpr=2" name="flexible" />
     <meta name="apple-touch-fullscreen" content="no"/>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
     <title></title>
 
@@ -14,23 +14,71 @@
     <!-- endinject -->
 </head>
 <body>
-<!-- the class "content" is used for flexible plugin -->
-<div class="swiper-container content">
-    <div class="swiper-wrapper">
-        <div class="swiper-slide scene">
-            <aside>
-                <h2>aside</h2>
-            </aside>
-            <main>
-                <h3>main</h3>
-            </main>
+
+<div class="page">
+    <!-- loading -->
+    <div class="scene loading">
+        <div class="loading-bd">
+            <img class="txt" src="assets/images/loading-txt.png" alt="" width="361" height="1007">
         </div>
-        <div class="swiper-slide scene">Slide 2</div>
-        <div class="swiper-slide scene">Slide 3</div>
     </div>
+    <!-- end loading -->
+
+    <!-- main scene -->
+    <div class="main">
+        <!-- scene 01 -->
+        <div class="scene scene01">
+            <div class="mask"></div>
+            <div class="scene-bd">
+                <img src="assets/images/s01-diaolan.png" alt="" class="diaoti" width="158" height="908">
+
+                <div class="video">
+                    <img src="assets/images/video-hd.png" alt="" width="1080" height="470" class="hd">
+                    <div class="bd"></div>
+                    <img src="assets/images/video-ft.png" alt="" width="1080" height="261" class="ft">
+                </div>
+
+                <!-- scene 02 -->
+                <div id="content" class="content">
+                    <div class="bd">
+                        <div class="arrow-wrap">
+                            <div class="arrow arrow01"><img src="assets/images/arrow01.png" alt="" width="129" height="56"></div>
+                            <div class="arrow arrow02"><img src="assets/images/arrow02.png" alt="" width="129" height="57"></div>
+                            <div><img src="assets/images/arrow-txt.png" alt="" width="186" height="46"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end scene 02 -->
+            </div>
+        </div>
+        <!-- end scene 01 -->
+
+        <!-- scene 02 -->
+        <div class="scene scene02">
+            <div class="mask"></div>
+            <div class="switch">
+                <div class="bd">
+                    <img src="assets/images/s02-switch01.png" alt="" width="1080" height="1214" class="item item01">
+                    <img src="assets/images/s02-switch02.png" alt="" width="1080" height="1214" class="item item02">
+                    <img src="assets/images/s02-switch03.png" alt="" width="1080" height="1214" class="item item03">
+                    <img src="assets/images/s02-switch04.png" alt="" width="1080" height="1214" class="item item04">
+                    <img src="assets/images/s02-switch05.png" alt="" width="1080" height="1214" class="item item05">
+                    <img src="assets/images/s02-switch06.png" alt="" width="1080" height="1214" class="item item06">
+                    <img src="assets/images/s02-switch06-mask.png" alt="" width="1080" height="1214" class="item item06-mask">
+                </div>
+            </div>
+        </div>
+        <!-- end scene 02 -->
+    </div>
+    <!-- end main scene -->
+
+    <!-- final -->
+    <div class="scene scene-final">
+        <div class="tips"></div>
+    </div>
+    <!-- end final -->
 </div>
 
-<audio id="audio" src=""></audio>
 <!-- inject:js -->
 <script src="assets/scripts/app.min.js"></script>
 <!-- endinject -->
