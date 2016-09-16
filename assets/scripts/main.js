@@ -169,15 +169,6 @@ var app = {
         setTimeout(function () {
             $('.main').remove();
         }, 2000);
-
-        $('.scene-final .toucharea').on('touchstart', function () {
-            location.reload();
-            // $('.scene-final .tips').addClass('active');
-
-            // setTimeout(function () {
-            //     $('.scene-final .tips').removeClass('active');
-            // }, 3000);
-        });
     },
 
     create: function (){
@@ -192,7 +183,7 @@ var app = {
             $('.loading').addClass('active');
 
             //  show scene 01
-            setTimeout(app.bindScene01, 1650);
+            setTimeout(app.bindScene01, 1600);
         }
     },
 
@@ -203,6 +194,12 @@ var app = {
 
 $(function (){
     window.onload = window.onresize = function(){
+        resize();
+    };
+
+    resize();
+
+    function resize () {
         var mode = window.innerWidth > 510 ? 'contain' : 'cover';
 
         pageResponse({
@@ -211,13 +208,16 @@ $(function (){
             width : '1080',      //输入页面的宽度，只支持输入数值，默认宽度为320px
             height : '1920'      //输入页面的高度，只支持输入数值，默认高度为504px
         });
-    };
+    }
 
     (function () {
         var loadedAmounts = 0;
         var imgArr = [
             { css: '.loading-num', src: 'loading-bg.jpg'},
             { css: '.loading-num .num', src: 'sprite-num.png'},
+            { css: '.loading-num .percent', src: 'loading-percent.png'},
+            { css: '.loading-num .circle01', src: 'loading-circle01.png'},
+            { css: '.loading-num .circle02', src: 'loading-circle02.png'},
             { css: '.loading-bd', src: 'loading-bg.jpg'},
             { css: '.scene01 .scene-bd', src: 's01-bg.jpg'}
         ];
@@ -233,18 +233,10 @@ $(function (){
             })(i);
         }
 
-        var img = new Image();
-        var percentImg = $('.loading-num .percent');
-        img.src = percentImg.attr('lazy-src');
-        img.onload = function () {
-            percentImg.attr('src', this.src);
-            start();
-        };
-
         function start () {
             loadedAmounts += 1;
 
-            if (loadedAmounts == imgArr.length + 1) {
+            if (loadedAmounts == imgArr.length) {
 
                 /** init app */
                 setTimeout(function () {

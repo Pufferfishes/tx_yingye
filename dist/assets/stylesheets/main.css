@@ -84,6 +84,37 @@ input {
   background: no-repeat;
   background-size: 100% 1000%;
 }
+.loading .loading-num .bd .percent {
+  width: 84px;
+  height: 81px;
+  position: relative;
+}
+.loading .loading-num .bd .circle01 {
+  display: block;
+  width: 34px;
+  height: 34px;
+  background: no-repeat;
+  -webkit-animation: rotate .6s infinite linear;
+          animation: rotate .6s infinite linear;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.loading .loading-num .bd .circle02 {
+  display: block;
+  width: 35px;
+  height: 35px;
+  background: no-repeat;
+  -webkit-animation: rotateReverse .6s infinite linear;
+          animation: rotateReverse .6s infinite linear;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  position: absolute;
+  right: 15px;
+  bottom: 7px;
+}
 .loading .loading-num .bd .num0 {
   display: inline-block;
   background-position: 0 0;
@@ -156,8 +187,8 @@ input {
 }
 .loading.active {
   opacity: 0;
-  -webkit-transition: all 1.2s 1.7s;
-  transition: all 1.2s 1.7s;
+  -webkit-transition: opacity 1.2s 1.7s;
+  transition: opacity 1.2s 1.7s;
 }
 .loading.active .loading-bd {
   background-size: 100% 100%;
@@ -261,30 +292,6 @@ input {
   left: 623px;
   top: 906px;
 }
-.scene01 .flash01 {
-  left: 435px;
-  top: 871px;
-  -webkit-animation: flash .2s infinite linear;
-          animation: flash .2s infinite linear;
-}
-.scene01 .flash02 {
-  left: 520px;
-  top: 869px;
-  -webkit-animation: flash .2s infinite linear;
-          animation: flash .2s infinite linear;
-}
-.scene01 .flash03 {
-  left: 434px;
-  top: 985px;
-  -webkit-animation: flash .2s infinite linear;
-          animation: flash .2s infinite linear;
-}
-.scene01 .flash04 {
-  left: 565px;
-  top: 987px;
-  -webkit-animation: flash .2s infinite linear;
-          animation: flash .2s infinite linear;
-}
 .scene01 .diaoti {
   position: absolute;
   left: 359px;
@@ -298,7 +305,16 @@ input {
   width: 200px;
   height: 200px;
   background: no-repeat center center;
+  background-size: 68px 68px;
   z-index: 1000;
+}
+.scene01 .machine-switch .bd {
+  width: 200px;
+  height: 200px;
+  background: no-repeat center center;
+  background-size: 68px 68px;
+  -webkit-animation: light 1.4s infinite;
+          animation: light 1.4s infinite;
 }
 .scene01 .video {
   position: absolute;
@@ -341,7 +357,7 @@ input {
   top: 0;
   left: 0;
   right: 0;
-  height: 8531px;
+  height: 10410px;
   text-align: center;
 }
 .scene01 .content .bd * {
@@ -389,6 +405,29 @@ input {
   top: 1538px;
   -webkit-transition: all 2s 2.3s;
   transition: all 2s 2.3s;
+}
+.scene01.videoPrepare .content-light {
+  margin: 0;
+  opacity: 1;
+  -webkit-transition: opacity .6s 2.6s;
+  transition: opacity .6s 2.6s;
+}
+.scene01.videoPrepare .diaoti {
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  -webkit-transition: all 4s 1s;
+  transition: all 4s 1s;
+}
+.scene01.videoPrepare .video {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition: all 2.5s 1s;
+  transition: all 2.5s 1s;
+}
+.scene01.videoPrepare .video .bd {
+  height: 642px;
+  -webkit-transition: all 2.3s 2.6s;
+  transition: all 2.3s 2.6s;
 }
 .scene01.videoPrepare .light01 {
   -webkit-animation: light 1s .5s infinite linear;
@@ -458,34 +497,11 @@ input {
   -webkit-animation: flash .2s infinite linear;
           animation: flash .2s infinite linear;
 }
-.scene01.videoPrepare .diaoti {
-  -webkit-transform: translateY(-100%);
-          transform: translateY(-100%);
-  -webkit-transition: all 4s 1s;
-  transition: all 4s 1s;
-}
-.scene01.videoPrepare .video {
-  -webkit-transform: translateY(0);
-          transform: translateY(0);
-  -webkit-transition: all 2.5s 1s;
-  transition: all 2.5s 1s;
-}
-.scene01.videoPrepare .video .bd {
-  height: 642px;
-  -webkit-transition: all 2.3s 2.6s;
-  transition: all 2.3s 2.6s;
-}
 .scene01.showContent .video {
   -webkit-transform: translateY(-100%);
           transform: translateY(-100%);
   -webkit-transition: all 1s;
   transition: all 1s;
-}
-.scene01.showContent .content-light {
-  margin: 0;
-  opacity: 1;
-  -webkit-transition: opacity .6s 2s;
-  transition: opacity .6s 2s;
 }
 .scene01.showContent .content {
   top: 0;
@@ -503,6 +519,70 @@ input {
           transform: scale(0.8);
   -webkit-transition: all 1.3s .2s;
   transition: all 1.3s .2s;
+}
+.scene01.noAnimation .light01 {
+  -webkit-animation: none;
+          animation: none;
+}
+.scene01.noAnimation .light02 {
+  -webkit-animation: none;
+          animation: none;
+}
+.scene01.noAnimation .light03 {
+  -webkit-animation: none;
+          animation: none;
+}
+.scene01.noAnimation .circle01 {
+  -webkit-animation: none;
+          animation: none;
+}
+.scene01.noAnimation .circle02 {
+  -webkit-animation: none;
+          animation: none;
+}
+.scene01.noAnimation .circle03 {
+  -webkit-animation: none;
+          animation: none;
+}
+.scene01.noAnimation .circle04 {
+  -webkit-animation: none;
+          animation: none;
+}
+.scene01.noAnimation .circle05 {
+  -webkit-animation: none;
+          animation: none;
+}
+.scene01.noAnimation .pointer01 {
+  -webkit-animation: none;
+          animation: none;
+}
+.scene01.noAnimation .pointer02 {
+  -webkit-animation: none;
+          animation: none;
+}
+.scene01.noAnimation .main-circle01 {
+  -webkit-animation: none;
+          animation: none;
+}
+.scene01.noAnimation .main-circle02 {
+  -webkit-animation: none;
+          animation: none;
+}
+.scene01.noAnimation .flash01 {
+  -webkit-animation: none;
+          animation: none;
+}
+.scene01.noAnimation .flash02 {
+  -webkit-animation: none;
+          animation: none;
+}
+.scene01.noAnimation .flash03 {
+  -webkit-animation: none;
+          animation: none;
+}
+.scene01.noAnimation .flash04 {
+  -webkit-animation: none;
+          animation: none;
 }
 
 .scene02 {
@@ -629,6 +709,7 @@ input {
 }
 
 .scene-final {
+  display: none;
   z-index: 0;
   overflow: hidden;
 }
